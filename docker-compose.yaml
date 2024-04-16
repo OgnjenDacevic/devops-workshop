@@ -1,0 +1,16 @@
+version: "3"
+services:
+  app:
+    container_name: devops-workshop-express
+    restart: always
+    build: ./
+    image: my-devops-app-image
+    ports:
+      - "8081:8081"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
